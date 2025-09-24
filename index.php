@@ -10,20 +10,31 @@ if(file_exists($filename)){
 
 if(isset($_POST['action'])) 
     {
+        $lastId = 0;
+        if(!empty($topics)){
+            $lastItem = end($topics);
+            $lastId = $lastItem->id;
+        }
+    $newId = $lastId + 1;
     if ($_POST['action'] == 'add'){
         array_push($topics,
-        (object)
-   [
-    "id" => "1234",
+        (object)[
+    "id" => $newId,
     "name" => $_POST['topic']
    ]
    );
    $jsonString = json_encode($topics, JSON_PRETTY_PRINT);
    file_put_contents($filename,$jsonString);
   }
-  elseif(($_POST['action'] == 'delete')){
-
-  }
+  elseif ($_POST['action'] == 'delete') {
+    $idToDelete = $_POST['id'];
+    $topics = array_filter($topics, function($topic) use ($idToDelete) {
+        return $topic->id != $idToDelete;
+    });
+    $topics = array_values($topics);
+    $jsonString = json_encode($topics, JSON_PRETTY_PRINT);
+    file_put_contents($filename, $jsonString);
+}
 
 }
 ?>
