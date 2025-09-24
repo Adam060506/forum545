@@ -6,10 +6,12 @@ if(file_exists($filename)){
 } else{
     $topics=[];
 }
-if(isset ($_POST['topic'])) {
+if(isset($_POST['action'])) {
+if ($_POST['action'] == 'add') {
    array_push($topics, $_POST['topic']);
    $jsonString = json_encode($topics);
   file_put_contents($filename,$jsonString);
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -27,7 +29,8 @@ if(isset ($_POST['topic'])) {
         {
             echo "<li>" . $value . '
             <form method = "post">
-            
+            <input type="hidden" name ="topic" value="'.$value.'">
+            <input type="hidden" name="action" value="delete">
             <input type=submit value="Törlés">
             </form>
             ';
@@ -35,6 +38,7 @@ if(isset ($_POST['topic'])) {
     ?>
 </ul>
 <form method = "POST">
+    <input type="hidden" name="action" value="add">
     <input type="text" name = "topic">
     <input type="submit" value = "Add">
 </form>
