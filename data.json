@@ -1,1 +1,14 @@
-["asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","asdasd","aasdasdasdasd"]
+[
+    {
+        "id": 1,
+        "name": "kutya"
+    },
+    {
+        "id": 2,
+        "name": "cica"
+    },
+    {
+        "id": 3,
+        "name": "citrom"
+    }
+]
