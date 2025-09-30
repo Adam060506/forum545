@@ -20,8 +20,9 @@ if(isset($_POST['action']))
         array_push($topics,
         (object)[
     "id" => $newId,
-    "name" => $_POST['topic']
-   ]
+    "name" => $_POST['topic'],
+    "date" => date("Y-m-d H:i:s")
+   ] 
    );
    $jsonString = json_encode($topics, JSON_PRETTY_PRINT);
    file_put_contents($filename,$jsonString);
@@ -50,15 +51,16 @@ if(isset($_POST['action']))
 <ul>
     <?php
         foreach($topics as $value)
-        {
-            echo "<li>" . $value->name . '
-            <form method = "post">
-            <input type="hidden" name ="id" value="'.$value->id .'">
-            <input type="hidden" name="action" value="delete">
-            <input type=submit value="Törlés">
-            </form>
-            ';
-        }
+{
+    echo "<li><strong>" . htmlspecialchars($value->name) . "</strong> <em>(" . $value->date . ")</em>
+        <form method='post' style='display:inline; margin-left: 10px;'>
+            <input type='hidden' name='id' value='" . $value->id . "'>
+            <input type='hidden' name='action' value='delete'>
+            <input type='submit' value='Törlés'>
+        </form>
+        </li>";
+}
+
     ?>
 </ul>
 <form method = "POST">
