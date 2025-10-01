@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "username": "Adam",
+        "password": "$2y$10$py6m1IRLALLV4KF.CEk4p.YaYuBAM8UXbd5z1\/\/TlSwdTLP5yKegG",
+        "email": "adam@gmail.com",
+        "role": "user",
+        "registration_date": "2025-10-01 09:38:55"
+    }
+]

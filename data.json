@@ -1,7 +1,14 @@
 [
     {
         "id": 1,
-        "name": "kuka",
-        "date": "2025-09-30 11:06:38"
+        "name": "\u00d3rai munka",
+        "description": "nagyon j\u00f3",
+        "author": "Adam",
+        "author_id": 1,
+        "date": "2025-10-01 09:40:03",
+        "views": 39,
+        "replies": 1,
+        "pinned": false,
+        "locked": false
     }
 ]
